@@ -3,9 +3,10 @@ stages {
 stage("build"){
 
 steps {
-script sh '''
+  script {sh '''
 echo "Bonjour Jenkins"
 '''
+         }
 }
 
 }
