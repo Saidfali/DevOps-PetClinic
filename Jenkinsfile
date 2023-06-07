@@ -25,10 +25,20 @@ pipeline {
             }
         }
       
-             stage('Deploy to K8s') {
+          stage('Deploy to K8s') {
+          environment {
+            CREDENTIAL = credentials('CREDENTIALS')
+            KUBE_CONFIG = credentials('config')
+          }
             steps {
               sh '''
-                echo 'Deploy to k8s'
+                  rm -Rf ~/.kube
+                  mkdir ~/.kube
+                  cat $KUBE_CONFIG > .kube/config
+                  rm -Rf ~/.aws
+                  mkdir ~/.aws
+                  cat $CREDENTIAL > .aws/credentials
+                  kubectl get pod
                 '''
             }
         }
