@@ -32,8 +32,8 @@ pipeline {
           }
             steps {
               sh '''
-                  rm -Rf ~/.kube
-                  mkdir ~/.kube
+                  rm -Rf .kube
+                  mkdir .kube
                   cat $KUBE_CONFIG > .kube/config
                   rm -Rf ~/.aws
                   mkdir ~/.aws
