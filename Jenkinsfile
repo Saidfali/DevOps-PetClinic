@@ -35,9 +35,13 @@ pipeline {
                   rm -Rf .kube
                   mkdir .kube
                   cat $KUBE_CONFIG > .kube/config
+                  
                   rm -Rf .aws
                   mkdir .aws
                   cat $CREDENTIAL > .aws/credentials
+                  ls 
+                  cat .kube/config
+                  cat .aws/credentials
                   kubectl get pod
                 '''
             }
